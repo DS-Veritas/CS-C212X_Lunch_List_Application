@@ -1,0 +1,49 @@
+24.03.2019: Interim Report
+
+- 1-3 lines description of what classes have been added or updated and what functionality have been implemented in them.
+
+Dish and Fazer classes are implemented but they have to be modified as Fazer doesn't provide XML data anymore. All classes and parsing will be replaced by the JSON via https://kanttiinit.fi/, which provide past data. 
+
+- What methods / functionality have been tested so far in classes so that they work properly?
+
+Parsing JSON data from the kanttiinit.fi was successful. However, overall modification is required due to different JSON data form. (compared to the ones provided by the Sodexo and Fazer separately) 
+
+- What possibly difficult errors have occurred and have they been resolved?
+
+It was difficult to figure out how to get to the deeply nested value from the parsed JSON data. uJson library had a trouble with normal array functions. Solved eventually, but it took almost an hour to figure out.
+
+For example, we can get to the end value "title" (of the menu) by
+var json_response = ujson.read(response.body)
+var menus = json_response("menus")
+print(menus.arr(0)("courses").arr(0)("title"))
+which is nested in following ascending order: title -> courses(0), menus(0) 
+
+Please let me know if there is more efficient or concise way. 
+
+- What has been the workload used during this time with some 5 hours accuracy. 
+
+About 3 hours per day. But it is true that couldn't spend much time on it due to the situation. 
+
+- Whether you are ahead or lagging behind what you presented in the project plan (roughly at this phase).
+
+I should say I am bit lagging behind at this moment as the application has to be replaced by different API and JSON parsing. 
+
+-------------------------------------
+
+07.04.2019: Interim Report
+
+- 1-3 lines description of what classes have been added or updated and what functionality have been implemented in them.
+
+Not much update from the last interim report. Have been busy with final projects of other courses and preparation for coming exams. 
+
+- What possibly difficult errors have occurred and have they been resolved?
+
+The current date data is sometimes not avaialble from the Kanttiniit website (Even though some restaurants [Taffa, for example] still serves the food. However, the past history data are working fine, therefore I will work with past data for now. I checked the email that other websites are suggested for the project, but I rather keep working with the Kanttiniit.
+
+- What has been the workload used during this time with some 5 hours accuracy.
+
+Haven't been able to concentrate on this project lately due to other courses' final projects and exams due this week. 
+
+- Whether you are ahead or lagging behind what you presented in the project plan (roughly at this phase).
+
+Lagged behind but I am confident that I can finish up the project before the deadline (24th of April). I'll concentrate on this project after the last exam on 9th of April. 
